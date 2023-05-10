@@ -1,0 +1,39 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.font.*;
+import java.awt.geom.*;
+import javax.swing.*;
+
+public class ProgramaBasico extends JFrame implements ActionListener {
+    private JLabel etiqueta;
+
+    public ProgramaBasico() {
+        super("Programa Básico");
+
+        // Configuración de la ventana
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 200);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+
+        // Creación del botón
+        JButton boton = new JButton("Haz clic aquí");
+        boton.addActionListener(this);
+        add(boton, BorderLayout.CENTER);
+
+        // Creación de la etiqueta
+        etiqueta = new JLabel("Texto inicial");
+        etiqueta.setHorizontalAlignment(SwingConstants.CENTER);
+        add(etiqueta, BorderLayout.NORTH);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        // Cambio del texto de la etiqueta cuando se hace clic en el botón
+        etiqueta.setText("Texto cambiado");
+    }
+
+    public static void main(String[] args) {
+        ProgramaBasico programa = new ProgramaBasico();
+        programa.setVisible(true);
+    }
+}
